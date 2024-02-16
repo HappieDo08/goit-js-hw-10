@@ -3,14 +3,14 @@ import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-////////////////////////////////////////////////////////////
+
 
 const breedSelectEl = document.querySelector('.breed-select');
 const catInfoEl = document.querySelector('.cat-info');
 const loaderEl = document.querySelector('.loader');
 const errorEl = document.querySelector('.error');
 
-////////////////////////////////////////////////////////////
+
 
 // for creating the options
 function chooseBreed(data) {
@@ -31,7 +31,6 @@ function chooseBreed(data) {
 
 chooseBreed();
 
-////////////////////////////////////////////////////////////
 
 function createMarkup(event) {
   // Show loader while loading
@@ -41,9 +40,7 @@ function createMarkup(event) {
   catInfoEl.classList.add('is-hidden');
 
   const breedId = event.target.value;
-  //   get the option value using event.target.value
-  //   console.log(event.target);
-  //   console.log(event.target.value);
+
 
   fetchCatByBreed(breedId)
     .then(data => {
@@ -68,7 +65,6 @@ function createMarkup(event) {
 
 breedSelectEl.addEventListener('change', createMarkup);
 
-////////////////////////////////////////////////////////////
 
 function onError() {
   // Show error Message
